@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 814fe2e2057e6fa46a620478d50b403c
-NativeFormatImporter:
+guid: 5b7fd3b35bb20f741b23b534a52c2dc9
+MonoImporter:
   externalObjects: {}
-  mainObjectFileID: 0
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -11,5 +14,5 @@ AssetOrigin:
   productId: 163249
   packageName: Interactive Physical Door Pack
   packageVersion: 1.0
-  assetPath: Assets/Animations/AN_Button.controller
+  assetPath: Assets/Scripts/AN_HeroInteractive.cs
   uploadId: 353527

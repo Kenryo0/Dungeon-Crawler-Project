@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 814fe2e2057e6fa46a620478d50b403c
-NativeFormatImporter:
+guid: 119f323ea51e51644aac303425640273
+MonoImporter:
   externalObjects: {}
-  mainObjectFileID: 0
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -11,5 +14,5 @@ AssetOrigin:
   productId: 163249
   packageName: Interactive Physical Door Pack
   packageVersion: 1.0
-  assetPath: Assets/Animations/AN_Button.controller
+  assetPath: Assets/Scripts/AN_DoorKey.cs
   uploadId: 353527
