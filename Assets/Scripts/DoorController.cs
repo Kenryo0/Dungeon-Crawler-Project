@@ -25,6 +25,9 @@ public class DoorController : MonoBehaviour
     [Tooltip("Speed for door opening, degrees per sec")]
     public float OpenSpeed = 3f;
 
+    
+    private AudioSource doorSong;
+
     // NearView()
     float distance;
     float angleView;
@@ -42,6 +45,7 @@ public class DoorController : MonoBehaviour
         rbDoor = GetComponent<Rigidbody>();
         hinge = GetComponent<HingeJoint>();
         playerInventory = FindFirstObjectByType<PlayerInventory>();
+        doorSong = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -72,7 +76,8 @@ public class DoorController : MonoBehaviour
             else if (!isOpened && CanOpen && !KeyLocked)
             {
                 isOpened = true;
-                rbDoor.AddRelativeTorque(new Vector3(0, -60f, 0)); 
+                rbDoor.AddRelativeTorque(new Vector3(0, -60f, 0));
+                doorSong.Play();
             }
         
         }

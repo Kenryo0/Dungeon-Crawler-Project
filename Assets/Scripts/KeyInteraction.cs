@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyInteraction : MonoBehaviour
 {
@@ -19,8 +20,9 @@ public class KeyInteraction : MonoBehaviour
         if ( NearView() && Input.GetKeyDown(KeyCode.E) )
         {
             playerInventory.hasKey = true;
+            playerInventory.keyImage.GetComponent<Image>().enabled = true;
             Destroy(gameObject);
-            playerInventory.keyImage.SetActive(true);
+            
         }
     }
 

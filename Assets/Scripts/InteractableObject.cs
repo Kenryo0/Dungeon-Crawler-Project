@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AN_Button : MonoBehaviour
+public class InteractableObject : MonoBehaviour
 {
     [Tooltip("True for rotation like valve (used for ramp/elevator only)")]
     public bool isValve = false;
@@ -28,10 +28,13 @@ public class AN_Button : MonoBehaviour
     public bool yPosition = false;
     public float max = 90f, min = 0f, speed = 5f;
     bool valveBool = true;
+    bool isSoundPlaying = false;
     float current, startYPosition;
     Quaternion startQuat, rampQuat;
 
     Animator anim;
+
+    private AudioSource rampSong;
 
     // NearView()
     float distance;
@@ -41,9 +44,14 @@ public class AN_Button : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        startYPosition = RampObject.position.y;
+        rampSong = GetComponent<AudioSource>();
+        if (isValve)
+        {
+            startYPosition = RampObject.position.y;
+            rampQuat = RampObject.rotation;
+        }
         startQuat = transform.rotation;
-        rampQuat = RampObject.rotation;
+        
     }
 
     void Update()
@@ -67,18 +75,31 @@ public class AN_Button : MonoBehaviour
                 {
                     if (valveBool)
                     {
+                        print("On déclenche la valve");
                         if (!isOpened && CanOpen && current < max) current += speed * Time.deltaTime;
                         if (isOpened && CanClose && current > min) current -= speed * Time.deltaTime;
-
+                        print("On déclenche le rampSong");
+                        if (!isSoundPlaying)
+                        {
+                            isSoundPlaying = true;
+                            rampSong.Play();
+                        }
+                        
                         if (current >= max)
                         {
+                            print("On déclenche le StopRampSong");
                             isOpened = true;
                             valveBool = false;
+                            rampSong.Stop();
+                            isSoundPlaying = false;
                         }
                         else if (current <= min)
                         {
+                            print("On déclenche le StopRampSong");
                             isOpened = false;
                             valveBool = false;
+                            rampSong.Stop();
+                            isSoundPlaying = false;
                         }
                     }
 
