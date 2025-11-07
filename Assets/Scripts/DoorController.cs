@@ -61,6 +61,7 @@ public class DoorController : MonoBehaviour
             {
                 KeyLocked = false;
                 playerInventory.hasKey = false;
+                playerInventory.keyImage.SetActive(false);
             }
             
             // opening/closing

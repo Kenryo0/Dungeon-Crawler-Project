@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [Tooltip("Child empty object for plug following")]
-    public Transform GoalPosition;
-
+    public GameObject keyImage;
     public bool hasKey = false;
+
 }

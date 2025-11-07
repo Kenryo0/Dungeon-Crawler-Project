@@ -18,9 +18,9 @@ public class KeyInteraction : MonoBehaviour
     {
         if ( NearView() && Input.GetKeyDown(KeyCode.E) )
         {
-            print("Je suis assez proche et je ramasse la clé");
             playerInventory.hasKey = true;
             Destroy(gameObject);
+            playerInventory.keyImage.SetActive(true);
         }
     }
 
